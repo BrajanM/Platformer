@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerControler : MonoBehaviour
 {
@@ -13,10 +14,15 @@ public class PlayerControler : MonoBehaviour
 	private Rigidbody2D rb;
 	public float startingY;
 
+	public Text points;
+	private int numberOfPoints=0;
+
     void Start()
     {
 		rb = gameObject.GetComponent<Rigidbody2D>();
 		startingY = transform.position.y + 0.03f;
+
+		points.text = "0";
     }
 
     // Update is called once per frame
@@ -45,7 +51,17 @@ public class PlayerControler : MonoBehaviour
 		{
 			rb.AddForce(new Vector2(0f,liftingForce* Time.deltaTime));
 		}
-
-
     }
+
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+		if (collision.gameObject.tag == "Coin")
+		{
+			numberOfPoints++;
+			points.text = numberOfPoints.ToString();
+			Destroy(collision.gameObject, 0);
+		}
+		
+	}
+
 }
