@@ -21,7 +21,7 @@ public class TrapSpawner : MonoBehaviour
 	{
 		if (timeFromSpawn >= delay)
 		{
-			if (rand.Next(0,10)<=difficulty)
+			if (rand.Next(0,1000)<=difficulty)
 			{
 				Instantiate(platform, new Vector2(transform.position.x, spawnpoints[rand.Next(0, spawnpoints.Length)]), transform.rotation);
 				timeFromSpawn = 0;

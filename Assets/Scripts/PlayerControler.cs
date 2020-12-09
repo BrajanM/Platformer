@@ -17,7 +17,6 @@ public class PlayerControler : MonoBehaviour
 	public Text points;
 	private int numberOfPoints=0;
 
-	public GameObject Player;
 
 	public GameObject Stalker;
 	private Animator anim;
@@ -73,8 +72,13 @@ public class PlayerControler : MonoBehaviour
 
 		if (collision.gameObject.tag == "Trap")
 		{
-			GameHandler.gameOver = true;
-			Player.SetActive(false);
+			GameHandler.trapTrigered = true;
+			
+		}
+		if (collision.gameObject.tag == "HP")
+		{
+			GameHandler.healthGained = true;
+			Destroy(collision.gameObject, 0);
 		}
 
 	}
