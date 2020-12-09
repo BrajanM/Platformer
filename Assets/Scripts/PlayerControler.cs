@@ -80,6 +80,16 @@ public class PlayerControler : MonoBehaviour
 			GameHandler.healthGained = true;
 			Destroy(collision.gameObject, 0);
 		}
+		if (collision.gameObject.tag == "slowTimeBonus")
+		{
+			GameHandler.slowTimeActivated = true;
+			Destroy(collision.gameObject, 0);
+		}
+		if (collision.gameObject.tag == "immortalityBonus")
+		{
+			GameHandler.immortalityActivated = true;
+			Destroy(collision.gameObject, 0);
+		}
 
 	}
 

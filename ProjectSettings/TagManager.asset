@@ -8,6 +8,8 @@ TagManager:
   - Coin
   - Trap
   - HP
+  - slowTimeBonus
+  - immortalityBonus
   layers:
   - Default
   - TransparentFX

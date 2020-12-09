@@ -6,25 +6,33 @@ using UnityEngine.SceneManagement;
 public class GameHandler : MonoBehaviour
 {
 	public GameObject RestartMenuPanel;
-
-	public static bool gameOver;
-
 	public GameObject[] HealthPointsArray;
 	public GameObject Player;
 
+	public static bool gameOver;
 	public static bool trapTrigered;
 	public static bool healthGained;
+	public static bool slowTimeActivated;
+	public static bool immortalityActivated;
+	public static float GameSpeed;
 
 	private int healthPoints=3;
 
+	public float slowTimeDelay;
+	float timeFromSlow;
+	public float immortalityDelay;
+	float timeFromImmortality;
 
-    // Start is called before the first frame update
-    void Start()
+	// Start is called before the first frame update
+	void Start()
     {
 		RestartMenuPanel.gameObject.SetActive(false);
 		gameOver = false;
 		trapTrigered = false;
 		healthGained = false;
+		slowTimeActivated = false;
+		immortalityActivated = false;
+		GameSpeed = 4;
 
 	}
 
@@ -38,11 +46,22 @@ public class GameHandler : MonoBehaviour
 
 		if (trapTrigered)
 		{
-			TrapTrigered();
+			if (!immortalityActivated)
+			{
+				TrapTrigered();
+			}
 		}
 		if (healthGained)
 		{
 			HealthGained();
+		}
+		if (slowTimeActivated)
+		{
+			SlowTimeActivated();
+		}
+		if (immortalityActivated)
+		{
+			ImmortalityActivated();
 		}
 
     }
@@ -90,6 +109,27 @@ public class GameHandler : MonoBehaviour
 		healthGained = false;
 	}
 
+	public void SlowTimeActivated()
+	{
+		GameSpeed = 2;
+		if (timeFromSlow >= slowTimeDelay)
+		{
+			slowTimeActivated = false;
+			GameSpeed = 4;
+			timeFromSlow = 0;
+		}
+		timeFromSlow += Time.deltaTime;
+	}
+
+	public void ImmortalityActivated()
+	{
+		if (timeFromImmortality>=immortalityDelay)
+		{
+			immortalityActivated = false;
+			timeFromImmortality = 0;
+		}
+		timeFromImmortality += Time.deltaTime;
+	}
 
 
 }

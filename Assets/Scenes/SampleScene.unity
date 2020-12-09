@@ -624,6 +624,58 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &590541737
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 590541739}
+  - component: {fileID: 590541738}
+  m_Layer: 0
+  m_Name: PowerUpSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &590541738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 590541737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 273987bfc43860c4b98212abba59cc50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PowerUps:
+  - {fileID: 385266136343664695, guid: d076b0128bdc0ac4bbf65100ed996f3e, type: 3}
+  - {fileID: 1489048685759658909, guid: eebc6bd73c97410438ea774ebb1c6037, type: 3}
+  difficulty: 10
+  delay: 2
+  spawnpoints:
+  - -3
+  - 3
+  - 0
+--- !u!4 &590541739
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 590541737}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.8, y: 1.8351061, z: -16.703125}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &744773565
 GameObject:
   m_ObjectHideFlags: 0
@@ -791,7 +843,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -306.9, y: 228.8}
+  m_AnchoredPosition: {x: -306.90002, y: 228.8}
   m_SizeDelta: {x: -623.8, y: -467.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &985984473
@@ -1858,6 +1910,8 @@ MonoBehaviour:
   - {fileID: 403100132}
   - {fileID: 1894564937}
   Player: {fileID: 1401075633}
+  slowTimeDelay: 10
+  immortalityDelay: 10
 --- !u!4 &1629283083
 Transform:
   m_ObjectHideFlags: 0
