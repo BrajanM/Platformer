@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameHandler : MonoBehaviour
 {
 	public GameObject RestartMenuPanel;
 	public GameObject[] HealthPointsArray;
 	public GameObject Player;
+	public Text endText;
 
 	public static bool gameOver;
 	public static bool trapTrigered;
@@ -22,6 +24,8 @@ public class GameHandler : MonoBehaviour
 	float timeFromSlow;
 	public float immortalityDelay;
 	float timeFromImmortality;
+
+	public int PointsToWin;
 
 	// Start is called before the first frame update
 	void Start()
@@ -62,6 +66,13 @@ public class GameHandler : MonoBehaviour
 		if (immortalityActivated)
 		{
 			ImmortalityActivated();
+		}
+
+		if (PointsToWin==PlayerControler.numberOfPoints)
+		{
+			endText.text = "VICTORY!!!";
+			gameOver = true;
+			Player.SetActive(false);
 		}
 
     }

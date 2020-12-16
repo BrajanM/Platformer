@@ -15,7 +15,7 @@ public class PlayerControler : MonoBehaviour
 	public float startingY;
 
 	public Text points;
-	private int numberOfPoints=0;
+	public static int numberOfPoints=0;
 
 
 	public GameObject Stalker;
