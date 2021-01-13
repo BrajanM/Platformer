@@ -30,7 +30,7 @@ public class ObjectSpawner : MonoBehaviour
 		}
 		if (timeFromSpawn>=delay)
 		{
-			Instantiate(platform, new Vector2(transform.position.x, spawnpoints[rand.Next(0, spawnpoints.Length)]), transform.rotation);
+			Instantiate(platform, new Vector3(platform.transform.position.x, spawnpoints[rand.Next(0, spawnpoints.Length)],platform.transform.position.z), platform.transform.rotation);
 			timeFromSpawn = 0;
 		}
 		timeFromSpawn += Time.deltaTime;
